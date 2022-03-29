@@ -1,3 +1,7 @@
+"""
+    Views for losses app
+"""
+
 from rest_framework import viewsets
 from losses.models import CropLoss
 from losses.serializers import CropLossSerializer

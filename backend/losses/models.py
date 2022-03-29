@@ -1,3 +1,7 @@
+"""
+    Model for losses app
+"""
+
 from django.db import models
 
 

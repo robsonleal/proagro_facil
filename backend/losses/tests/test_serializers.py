@@ -18,6 +18,7 @@ class CropLossSerializerTestCase(TestCase):
         self.serializer = CropLossSerializer(instance=self.crop_loss)
 
     def test_check_serializer_fields(self):
+        """ Testing serializer fields """
         data = self.serializer.data
         self.assertEqual(
             set(data.keys()),

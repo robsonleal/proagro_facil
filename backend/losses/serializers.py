@@ -1,3 +1,7 @@
+"""
+    Serializer for losses app, convert data in JSON format
+"""
+
 from rest_framework import serializers
 from losses.models import CropLoss
 
