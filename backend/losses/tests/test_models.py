@@ -10,14 +10,14 @@ class CropLossModelTestCase(TestCase):
 
     def setUp(self):
         self.crop_loss = CropLoss.objects.create(
-            farmer_name = 'Testing Name',
-            farmer_email = 'example@testing.com',
-            farmer_cpf = '222-111-111-15',
-            crop_lat = -53.00000,
-            crop_long = -14.00000,
-            crop_type = 'Milho',
-            harvest_date = '2022-10-10',
-            event_croploss = 'CHEX',
+            farmer_name='Testing Name',
+            farmer_email='example@testing.com',
+            farmer_cpf='222-111-111-15',
+            crop_lat=-53.00000,
+            crop_long=-14.00000,
+            crop_type='Milho',
+            harvest_date='2022-10-10',
+            event_croploss='CHEX',
         )
 
     def test_farmer_name(self):
@@ -62,5 +62,4 @@ class CropLossModelTestCase(TestCase):
 
     def test_object_name_return(self):
         croploss = CropLoss.objects.get(id=1)
-        expected_object_name = f'{croploss.farmer_name}'
-        self.assertEquals(expected_object_name, str(croploss))
+        self.assertEquals(croploss.farmer_name, str(croploss))
