@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'losses',
+    'rest_framework',
+    'losses.apps.LossesConfig',
 ]
 
 MIDDLEWARE = [

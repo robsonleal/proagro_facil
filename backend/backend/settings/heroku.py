@@ -1,5 +1,5 @@
 """
-    Settings for heroku deploy
+    Django settings for heroku deploy
 """
 
 import environ
