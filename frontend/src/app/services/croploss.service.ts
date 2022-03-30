@@ -26,4 +26,7 @@ export class CroplossService {
   deleteAll(): Observable<any> {
     return this.http.delete(baseUrl);
   }
+  findByTitle(farmer_name: any): Observable<Croploss[]> {
+    return this.http.get<Croploss[]>(`${baseUrl}?title=${farmer_name}`);
+  }
 }
