@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-7"></div>
+        <div class="col-5">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Pesquisar por CPF" [(ngModel)]="farmer_name"/>
+                <div class="input-group-append">
+                    <button class="btn btn-success" type="button" (click)="searchTitle()">
+                        Pesquisar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7"></div>
+        <div class="col-5">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Evento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of croploss; let i = index" [class.active]="i == currentIndex"
+                    (click)="setActiveCroploss(item, i)">
+                        <th scope="row">{{ i+1 }}</th>
+                        <td>{{ item.farmer_name }}</td>
+                        <td>{{ item.farmer_cpf }}</td>
+                        <td>{{ item.event_croploss }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
