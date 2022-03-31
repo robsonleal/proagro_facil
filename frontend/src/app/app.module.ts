@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AddCroplossComponent } from './components/add-croploss/add-croploss.component';
 import { CroplossDetailsComponent } from './components/croploss-details/croploss-details.component';
 import { CroplossListComponent } from './components/croploss-list/croploss-list.component';
@@ -14,13 +15,14 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     AddCroplossComponent,
     CroplossDetailsComponent,
-    CroplossListComponent
+    CroplossListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

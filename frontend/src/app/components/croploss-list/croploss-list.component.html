@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row m-3">
         <div class="col-6 offset-3">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" mask="000.000.000-00" placeholder="Pesquisar por CPF"
@@ -13,28 +13,32 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-6"></div>
         <div class="col-6">
-            <table class="table table-light table-hover table-striped radius">
-                <caption *ngIf="!currentCroploss.id">Click sobre um item para detalhar</caption>
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Evento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of croploss; let i = index" [class.active]="i == currentIndex"
-                    (click)="setActiveCroploss(item, i)">
-                        <th class="text-center" scope="row">{{ i+1 }}</th>
-                        <td scope="row">{{ item.farmer_name }}</td>
-                        <td class="text-center" scope="row">{{ item.farmer_cpf }}</td>
-                        <td class="text-center" scope="row">{{ item.event_croploss }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            
+        </div>
+        <div class="col-6">
+            <div *ngIf="!currentCroploss.id">
+                <table class="table table-light table-hover table-striped radius">
+                    <caption class="text-center">Click sobre um item para detalhar</caption>
+                    <thead>
+                        <tr class="text-center">
+                            <th class="col-1">#</th>
+                            <th class="col-5">Nome</th>
+                            <th class="col-4">CPF</th>
+                            <th class="col-2">Evento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of croploss | paginate: { itemsPerPage: 8, currentPage: p }; let i = index" [class.active]="i == currentIndex" (click)="setActiveCroploss(item, i)">
+                            <th class="text-center">{{ i+1 }}</th>
+                            <td>{{ item.farmer_name }}</td>
+                            <td class="text-center">{{ item.farmer_cpf }}</td>
+                            <td class="text-center">{{ item.event_croploss }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+            </div>
             <div *ngIf="currentCroploss.id">
                 <div class="card">
                     <div class="card-header">
@@ -44,8 +48,9 @@
                             </div>
                             <div class="col-2">
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <a type="button" class="btn btn-primary btn-sm" (click)="refreshList()"> < </a>
                                     <a type="submit" class="btn btn-success btn-sm" (click)="editCroploss(currentCroploss)" >Editar</a>
-                                    <a href="#" type="button" class="btn btn-danger btn-sm">Remover</a>
+                                    <a href="#" type="button" class="btn btn-danger btn-sm">Apagar</a>
                                 </div>
                             </div>
                         </div>

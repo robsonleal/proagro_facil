@@ -10,11 +10,12 @@ import { Router } from '@angular/router';
 })
 
 export class CroplossListComponent implements OnInit {
-  croploss?: Croploss[];
+  croploss: Croploss[] = [];
   currentCroploss: Croploss = {};
+  p: number = 1;
   currentIndex = -1;
   farmer_cpf = '';
-
+  
   constructor(
     private croplossService: CroplossService,
     private router: Router
@@ -29,6 +30,7 @@ export class CroplossListComponent implements OnInit {
         data => {
           this.croploss = data;
           console.log(data);
+          console.log(this.croploss)
         },
         error => {
           console.log(error);
