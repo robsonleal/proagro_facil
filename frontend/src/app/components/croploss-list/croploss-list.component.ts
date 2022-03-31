@@ -85,6 +85,7 @@ export class CroplossListComponent implements OnInit {
         response => {
           console.log(response);
           this.router.navigate(['/perdas']);
+          this.refreshList();
         },
         error => {
           console.log(error);
