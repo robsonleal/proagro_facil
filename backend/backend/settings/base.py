@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'rest_framework',
     'drf_yasg',
+    'django_filters',
     # My apps
     'losses.apps.LossesConfig',
 ]
@@ -113,5 +114,5 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 # CORS configuration
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "http://localhost:8081",
 ]
