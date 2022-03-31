@@ -7,15 +7,17 @@ import { CroplossService } from 'src/app/services/croploss.service';
   templateUrl: './croploss-list.component.html',
   styleUrls: ['./croploss-list.component.css']
 })
+
 export class CroplossListComponent implements OnInit {
   croploss?: Croploss[];
   currentCroploss: Croploss = {};
   currentIndex = -1;
-  farmer_name = '';
+  farmer_cpf = '';
   constructor(private croplossService: CroplossService) { }
   ngOnInit(): void {
     this.retrieveCroploss();
   }
+
   retrieveCroploss(): void {
     this.croplossService.getAll()
       .subscribe(
@@ -27,15 +29,18 @@ export class CroplossListComponent implements OnInit {
           console.log(error);
         });
   }
+
   refreshList(): void {
     this.retrieveCroploss();
     this.currentCroploss = {};
     this.currentIndex = -1;
   }
+
   setActiveCroploss(croploss: Croploss, index: number): void {
     this.currentCroploss = croploss;
     this.currentIndex = index;
   }
+
   removeAllCroploss(): void {
     this.croplossService.deleteAll()
       .subscribe(
@@ -47,10 +52,10 @@ export class CroplossListComponent implements OnInit {
           console.log(error);
         });
   }
-  searchTitle(): void {
+  searchCPF(): void {
     this.currentCroploss = {};
     this.currentIndex = -1;
-    this.croplossService.findByTitle(this.farmer_name)
+    this.croplossService.findByCPF(this.farmer_cpf)
       .subscribe(
         data => {
           this.croploss = data;

@@ -7,6 +7,7 @@ import { CroplossService } from 'src/app/services/croploss.service';
   templateUrl: './add-croploss.component.html',
   styleUrls: ['./add-croploss.component.css']
 })
+
 export class AddCroplossComponent implements OnInit {
   croploss: Croploss = {
     farmer_name: '',
@@ -18,10 +19,13 @@ export class AddCroplossComponent implements OnInit {
     harvest_date: '',
     event_croploss: '',
   };
+
   submitted = false;
   constructor(private croplossService: CroplossService) { }
+  
   ngOnInit(): void {
   }
+  
   saveCroploss(): void {
     const data = {
       farmer_name: this.croploss.farmer_name,
@@ -43,6 +47,7 @@ export class AddCroplossComponent implements OnInit {
           console.log(error);
         });
   }
+
   newCroploss(): void {
     this.submitted = false;
     this.croploss = {

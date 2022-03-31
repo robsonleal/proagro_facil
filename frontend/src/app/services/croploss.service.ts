@@ -3,9 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Croploss } from '../models/croploss.model';
 const baseUrl = 'http://localhost:8000/perdas/';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class CroplossService {
   constructor(private http: HttpClient) { }
   getAll(): Observable<Croploss[]> {
@@ -26,7 +28,7 @@ export class CroplossService {
   deleteAll(): Observable<any> {
     return this.http.delete(baseUrl);
   }
-  findByTitle(farmer_name: any): Observable<Croploss[]> {
-    return this.http.get<Croploss[]>(`${baseUrl}?title=${farmer_name}`);
+  findByCPF(farmer_cpf: any): Observable<Croploss[]> {
+    return this.http.get<Croploss[]>(`${baseUrl}?farmer_cpf=${farmer_cpf}`);
   }
 }
