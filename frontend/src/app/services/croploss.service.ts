@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Croploss } from '../models/croploss.model';
-const baseUrl = 'http://localhost:8000/perdas/';
+const baseUrl = 'http://localhost:8000/perdas';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class CroplossService {
     return this.http.get(`${baseUrl}/${id}`);
   }
   create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+    return this.http.post(`${baseUrl}/`, data);
   }
   update(id: any, data: any): Observable<any> {
     return this.http.put(`${baseUrl}/${id}`, data);
@@ -29,6 +29,6 @@ export class CroplossService {
     return this.http.delete(baseUrl);
   }
   findByCPF(farmer_cpf: any): Observable<Croploss[]> {
-    return this.http.get<Croploss[]>(`${baseUrl}?farmer_cpf=${farmer_cpf}`);
+    return this.http.get<Croploss[]>(`${baseUrl}/?farmer_cpf=${farmer_cpf}`);
   }
 }

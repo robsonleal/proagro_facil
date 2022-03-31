@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Croploss } from 'src/app/models/croploss.model';
 import { CroplossService } from 'src/app/services/croploss.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-croploss-list',
@@ -13,7 +14,11 @@ export class CroplossListComponent implements OnInit {
   currentCroploss: Croploss = {};
   currentIndex = -1;
   farmer_cpf = '';
-  constructor(private croplossService: CroplossService) { }
+
+  constructor(
+    private croplossService: CroplossService,
+    private router: Router
+  ){ }
   ngOnInit(): void {
     this.retrieveCroploss();
   }
@@ -52,14 +57,32 @@ export class CroplossListComponent implements OnInit {
           console.log(error);
         });
   }
+
   searchCPF(): void {
     this.currentCroploss = {};
     this.currentIndex = -1;
     this.croplossService.findByCPF(this.farmer_cpf)
+    .subscribe(
+      data => {
+        this.croploss = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  editCroploss(data: any) {
+    console.log(data)
+    this.router.navigate([`/perdas/${data.id}`])
+  }
+
+  deleteCroploss(): void {
+    this.croplossService.delete(this.currentCroploss.id)
       .subscribe(
-        data => {
-          this.croploss = data;
-          console.log(data);
+        response => {
+          console.log(response);
+          this.router.navigate(['/perdas']);
         },
         error => {
           console.log(error);

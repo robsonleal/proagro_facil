@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-6"></div>
-        <div class="col-6">
+        <div class="col-6 offset-3">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" mask="000.000.000-00" placeholder="Pesquisar por CPF" [(ngModel)]="farmer_cpf"/>
+                <input type="text" class="form-control" mask="000.000.000-00" placeholder="Pesquisar por CPF"
+                    [(ngModel)]="farmer_cpf" />
                 <div class="input-group-append">
                     <button class="btn btn-success" type="button" (click)="searchCPF()">
                         Pesquisar
@@ -15,9 +15,10 @@
     <div class="row">
         <div class="col-6"></div>
         <div class="col-6">
-            <table class="table table-hover">
+            <table class="table table-light table-hover table-striped radius">
+                <caption *ngIf="!currentCroploss.id">Click sobre um item para detalhar</caption>
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
                         <th scope="col">CPF</th>
@@ -27,35 +28,38 @@
                 <tbody>
                     <tr *ngFor="let item of croploss; let i = index" [class.active]="i == currentIndex"
                     (click)="setActiveCroploss(item, i)">
-                        <th scope="row">{{ i+1 }}</th>
+                        <th class="text-center" scope="row">{{ i+1 }}</th>
                         <td scope="row">{{ item.farmer_name }}</td>
-                        <td scope="row">{{ item.farmer_cpf }}</td>
-                        <td scope="row">{{ item.event_croploss }}</td>
+                        <td class="text-center" scope="row">{{ item.farmer_cpf }}</td>
+                        <td class="text-center" scope="row">{{ item.event_croploss }}</td>
                     </tr>
                 </tbody>
             </table>
-            <!-- Construido para ser usado posteriormente -->>
             <div *ngIf="currentCroploss.id">
-                <h4>Tutorial</h4>
-                <div>
-                    <label><strong>Title:</strong></label> {{ currentCroploss.farmer_name }}
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-10">
+                                <h5>{{ currentCroploss.farmer_name }}</h5>
+                            </div>
+                            <div class="col-2">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <a type="submit" class="btn btn-success btn-sm" (click)="editCroploss(currentCroploss)" >Editar</a>
+                                    <a href="#" type="button" class="btn btn-danger btn-sm">Remover</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>E-mail:</strong> {{ currentCroploss.farmer_email }}</p>
+                        <p class="card-text"><strong>CPF:</strong> {{ currentCroploss.farmer_cpf }} </p>
+                        <p class="card-text"><strong>Localização da lavoura:</strong> {{ currentCroploss.crop_lat }},{{ currentCroploss.crop_long }}</p>
+                        <p class="card-text"><strong>Tipo de lavoura:</strong> {{ currentCroploss.crop_type }}</p>
+                        <p class="card-text"><strong>Data da colheita:</strong> {{ currentCroploss.harvest_date }}</p>
+                        <p class="card-text"><strong>Evento ocorrido:</strong> {{ currentCroploss.event_croploss }}</p>
+                    </div>
                 </div>
-                <div>
-                    <label><strong>Description:</strong></label>
-                    {{ currentCroploss.farmer_cpf }}
-                </div>
-                <div>
-                    <label><strong>Status:</strong></label>
-                </div>
-                <a class="badge badge-warning" routerLink="/perdas/{{ currentCroploss.id }}">
-                    Edit
-                </a>
             </div>
-            <div *ngIf="!currentCroploss">
-                <br />
-                <p>Please click on a Tutorial...</p>
-            </div>
-            <!-- até aqui -->>
         </div>
     </div>
 </div>

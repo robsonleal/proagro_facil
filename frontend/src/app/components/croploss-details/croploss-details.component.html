@@ -1,1 +1,64 @@
-<p>croploss-details works!</p>
+<div class="row g-3 submit-form" >
+    <form *ngIf="currentCroploss.id" class="row g-3 submit-form">
+        <h4 class="text-center">Atualizar comunicação de perdas na lavoura</h4>
+        <div class="col-12">
+            <label class="form-label" for="farmer_name">Nome do produtor rural</label>
+            <input type="text" class="form-control" id="farmer_name" name="farmer_name"
+                [(ngModel)]="currentCroploss.farmer_name" />
+        </div>
+        <div class="col-12">
+            <label class="form-label" for="farmer_email">Email do produtor rural</label>
+            <input type="email" class="form-control" id="farmer_email" name="farmer_email"
+                [(ngModel)]="currentCroploss.farmer_email" />
+        </div>
+        <div class="col-12">
+            <label class="form-label" for="farmer_cpf">CPF do produtor rural</label>
+            <input type="text" class="form-control" id="farmer_cpf" name="farmer_cpf" [(ngModel)]="currentCroploss.farmer_cpf" />
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <label class="form-label">Localização da lavoura</label>
+                <div class="col-6">
+                    <label class="form-label" for="crop_lat" hidden>Latituda da lavoura</label>
+                    <input type="text" class="form-control" id="crop_lat" name="crop_lat" placeholder="Latitude..."
+                        [(ngModel)]="currentCroploss.crop_lat" />
+                </div>
+                <div class="col-6">
+                    <label class="form-label" for="crop_long" hidden>Longitude da lavoura</label>
+                    <input type="text" class="form-control" id="crop_long" name="crop_long" placeholder="Longitude..."
+                        [(ngModel)]="currentCroploss.crop_long" />
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <label class="form-label" for="harvest_date">Data da colheita</label>
+            <input type="text" class="form-control" id="harvest_date" name="harvest_date"
+                [(ngModel)]="currentCroploss.harvest_date" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="crop_type">Tipo de lavoura</label>
+            <select class="form-select" id="crop_type" name="crop_type" [(ngModel)]="currentCroploss.crop_type">
+                <option value="milho" selected>Milho</option>
+                <option value="soja">Soja</option>
+                <option value="arroz">Arroz</option>
+                <option value="café">Café</option>
+                <option value="trigo">Trigo</option>
+                <option value="feijão">Feijão</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="event_croploss" class="form-label">State</label>
+            <select id="event_croploss" class="form-select" name="event_croploss" [(ngModel)]="currentCroploss.event_croploss">
+                <option value="CHEX" selected>Chuva excessiva</option>
+                <option value="GEAD">Geada</option>
+                <option value="GRAN">Granizo</option>
+                <option value="SECA">Seca</option>
+                <option value="VEND">Vendaval</option>
+                <option value="RAIO">Raio</option>
+            </select>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto mt-4">
+            <button (click)="updateCroploss()" class="btn btn-success">Atualizar</button>
+        </div>
+    </form>
+</div>
