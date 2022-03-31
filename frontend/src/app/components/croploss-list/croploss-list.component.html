@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="col-7"></div>
-        <div class="col-5">
+        <div class="col-6"></div>
+        <div class="col-6">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" mask="000.000.000-00" placeholder="Pesquisar por CPF" [(ngModel)]="farmer_cpf"/>
                 <div class="input-group-append">
@@ -13,8 +13,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-7"></div>
-        <div class="col-5">
+        <div class="col-6"></div>
+        <div class="col-6">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -28,12 +28,34 @@
                     <tr *ngFor="let item of croploss; let i = index" [class.active]="i == currentIndex"
                     (click)="setActiveCroploss(item, i)">
                         <th scope="row">{{ i+1 }}</th>
-                        <td>{{ item.farmer_name }}</td>
-                        <td>{{ item.farmer_cpf }}</td>
-                        <td>{{ item.event_croploss }}</td>
+                        <td scope="row">{{ item.farmer_name }}</td>
+                        <td scope="row">{{ item.farmer_cpf }}</td>
+                        <td scope="row">{{ item.event_croploss }}</td>
                     </tr>
                 </tbody>
             </table>
+            <!-- Construido para ser usado posteriormente -->>
+            <div *ngIf="currentCroploss.id">
+                <h4>Tutorial</h4>
+                <div>
+                    <label><strong>Title:</strong></label> {{ currentCroploss.farmer_name }}
+                </div>
+                <div>
+                    <label><strong>Description:</strong></label>
+                    {{ currentCroploss.farmer_cpf }}
+                </div>
+                <div>
+                    <label><strong>Status:</strong></label>
+                </div>
+                <a class="badge badge-warning" routerLink="/perdas/{{ currentCroploss.id }}">
+                    Edit
+                </a>
+            </div>
+            <div *ngIf="!currentCroploss">
+                <br />
+                <p>Please click on a Tutorial...</p>
+            </div>
+            <!-- até aqui -->>
         </div>
     </div>
 </div>
