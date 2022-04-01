@@ -55,6 +55,25 @@ https://user-images.githubusercontent.com/27708175/161293652-d178796e-058c-49fd-
 
 <a href="https://proagro-facil.herokuapp.com/"><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original-wordmark.svg" /></a>
 
-## Abrir e rodar o projeto
+## Abrir e rodar o projeto localmente
 
+### Backend
+```console
+git clone git@github.com:robsonleal/proagro_facil.git
+cd django-restapi
+python -m venv ./venv
+source venv/bin/activate
+pip install -r 'requirements.txt'
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+```
+### Frontend
+```console
+cd frontend
+ng build --prod --output-path /{{caminho até o projeto}}/proagro_facil/backend/static/ang --watch --output-hashing none
+```
 
+- Abrir o endereço localhost:8000 no navegador de sua preferência;
+- Com o build em execução qualquer alteração feita na pasta do projeto angular, será servido como arquivos estático para o Django
