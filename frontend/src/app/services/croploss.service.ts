@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Croploss } from '../models/croploss.model';
-const baseUrl = 'http://localhost:8000/perdas';
+const baseUrl = 'http://127.0.0.1:8000/perdas';
 
 @Injectable({
   providedIn: 'root'
