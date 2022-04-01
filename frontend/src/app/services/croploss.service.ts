@@ -15,7 +15,7 @@ export class CroplossService {
     return this.http.get<Croploss[]>(baseUrl);
   }
 
-  get(id: any): Observable<Croploss> {
+  get(id: any): Observable<any> {
     return this.http.get(`${baseUrl}/${id}`);
   }
 

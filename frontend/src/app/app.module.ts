@@ -9,6 +9,7 @@ import { CroplossDetailsComponent } from './components/croploss-details/croploss
 import { CroplossListComponent } from './components/croploss-list/croploss-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MapaComponent } from './components/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     AddCroplossComponent,
     CroplossDetailsComponent,
     CroplossListComponent,
+    MapaComponent,
   ],
   imports: [
     BrowserModule,

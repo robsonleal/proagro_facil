@@ -20,7 +20,9 @@ export class CroplossDetailsComponent implements OnInit {
     event_croploss: '',
   };
 
+  submitted = false;
   message = '';
+
   constructor(
     private croplossService: CroplossService,
     private route: ActivatedRoute,
@@ -43,36 +45,13 @@ export class CroplossDetailsComponent implements OnInit {
         });
   }
 
-  /*updatePublished(status: boolean): void {
-    const data = {
-      farmer_name: this.currentCroploss.farmer_name,
-      farmer_email: this.currentCroploss.farmer_email,
-      farmer_cpf: this.currentCroploss.farmer_cpf,
-      crop_lat: this.currentCroploss.crop_lat,
-      crop_long: this.currentCroploss.crop_long,
-      crop_type: this.currentCroploss.crop_type,
-      harvest_date: this.currentCroploss.harvest_date,
-      event_croploss: this.currentCroploss.event_croploss,
-    };
-    this.message = '';
-    this.croplossService.update(this.currentCroploss.id, data)
-      .subscribe(
-        response => {
-          this.currentCroploss.published = status;
-          console.log(response);
-          this.message = response.message ? response.message : 'The status was updated successfully!';
-        },
-        error => {
-          console.log(error);
-        });
-  }*/
-
   updateCroploss(): void {
     this.message = '';
     this.croplossService.update(this.currentCroploss.id, this.currentCroploss)
     .subscribe(
       response => {
         console.log(response);
+        this.submitted = true;
         this.message = response.message ? response.message : 'Dados atualizados com sucesso!';
       },
       error => {

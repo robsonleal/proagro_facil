@@ -1,5 +1,5 @@
-<div class="row g-3 submit-form" >
-    <form *ngIf="currentCroploss.id" class="row g-3 submit-form">
+<div class="row g-3 submit-form">
+    <form class="row g-3 submit-form" *ngIf="!submitted">
         <h4 class="text-center">Atualizar comunicação de perdas na lavoura</h4>
         <div class="col-12">
             <label class="form-label" for="farmer_name">Nome do produtor rural</label>
@@ -61,4 +61,7 @@
             <button (click)="updateCroploss()" class="btn btn-success">Atualizar</button>
         </div>
     </form>
+    <div *ngIf="submitted">
+        <h2 class="text-center mt-5">{{message}}</h2>
+    </div>
 </div>

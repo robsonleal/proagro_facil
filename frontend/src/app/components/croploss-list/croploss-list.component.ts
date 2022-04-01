@@ -11,15 +11,19 @@ import { Router } from '@angular/router';
 
 export class CroplossListComponent implements OnInit {
   croploss: Croploss[] = [];
-  currentCroploss: Croploss = {};
+  currentCroploss: Croploss = {
+    crop_lat: 0,
+    crop_long: 0,
+  };
   p: number = 1;
   currentIndex = -1;
   farmer_cpf = '';
   
   constructor(
     private croplossService: CroplossService,
-    private router: Router
+    private router: Router,
   ){ }
+  
   ngOnInit(): void {
     this.retrieveCroploss();
   }
@@ -39,7 +43,11 @@ export class CroplossListComponent implements OnInit {
 
   refreshList(): void {
     this.retrieveCroploss();
-    this.currentCroploss = {};
+    this.currentCroploss = {
+      crop_lat: 0,
+      crop_long: 0,
+  };
+
     this.currentIndex = -1;
   }
 
@@ -61,7 +69,10 @@ export class CroplossListComponent implements OnInit {
   }
 
   searchCPF(): void {
-    this.currentCroploss = {};
+    this.currentCroploss = {
+      crop_lat: 0,
+      crop_long: 0,
+    };
     this.currentIndex = -1;
     this.croplossService.findByCPF(this.farmer_cpf)
     .subscribe(
