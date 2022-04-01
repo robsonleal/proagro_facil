@@ -6,6 +6,7 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.views.generic.base import TemplateView
 
 
 schema_view = get_schema_view(
@@ -25,6 +26,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
+    path('', TemplateView.as_view(template_name="index.html"), name="home"),
     path('', include('losses.urls')),
     path(
         'swagger/',
