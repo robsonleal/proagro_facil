@@ -11,9 +11,9 @@
 
 - [Ferramentas utilizadas](#ferramentas-utilizadas)
 
-- [Acesso ao projeto](#acesso-ao-projeto)
+- [Acesso ao projeto - Deploy](#acesso-ao-projeto---deploy)
 
-- [Abrir e rodar o projeto](#abrir-e-rodar-o-projeto)
+- [Abrir e rodar o projeto localmente](#abrir-e-rodar-o-projeto-localmente)
 
 ## Descrição do projeto 
 
@@ -46,14 +46,14 @@ https://user-images.githubusercontent.com/27708175/161293652-d178796e-058c-49fd-
 <p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" /> Django 4</p>
 <p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" /> Javascript</p>
 <p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" /> Typescript</p>
-<p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" /> HTML</p>
-<p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" /> CSS</p>
+<p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" /> HTML 5</p>
+<p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" /> CSS 3</p>
 <p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" /> Angular CLI 12</p>
 <p><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" /> PostgreSQL</p>
 
-## Acesso ao projeto
+## Acesso ao projeto - Deploy
 
-<a href="https://proagro-facil.herokuapp.com/"><img width="40" height="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original-wordmark.svg" /></a>
+<a href="https://proagro-facil.herokuapp.com/"><img width="80" height="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original-wordmark.svg" /></a>
 
 ## Abrir e rodar o projeto localmente
 
